@@ -1,0 +1,20 @@
+@import '../shared/styles/fonts.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+    color: theme('colors.text');
+  }
+
+  body {
+    @apply bg-white;
+  }
+
+  #app-root {
+    @apply m-0 ml-auto mr-auto h-full w-full max-w-7xl;
+  }
+}

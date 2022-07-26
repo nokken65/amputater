@@ -1,0 +1,117 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:effector/recommended",
+    "plugin:effector/scope",
+    "plugin:prettier/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "react",
+    "effector",
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort",
+    "jsx-a11y"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-body-style": 0,
+    "no-shadow": 0,
+    "no-use-before-define": 0,
+    "prettier/prettier": 1,
+    "newline-before-return": 2,
+    "import/extensions": [
+      2,
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-console": [
+      2,
+      {
+        "allow": ["error"]
+      }
+    ],
+
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/require-default-props": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/no-unstable-nested-components": 0,
+    "react/function-component-definition": 0,
+    "react/jsx-sort-props": [
+      2,
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true
+      }
+    ],
+
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-default-export": 2,
+    "import/no-self-import": 2,
+    "import/no-named-as-default": 2,
+
+    "simple-import-sort/imports": 2,
+    "simple-import-sort/exports": 2,
+
+    "@typescript-eslint/ban-types": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-shadow": 2,
+    "@typescript-eslint/no-unused-vars": 2,
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["draft"] }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "./src/pages/*/index.tsx",
+        "./src/pages/*.tsx",
+        "./src/pages/**/*.tsx",
+        "./src/pages/**/pages/**/index.tsx",
+        "./*.ts"
+      ],
+      "rules": {
+        "import/no-default-export": 0
+      }
+    }
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".ts", ".tsx", ".json"]
+      }
+    }
+  }
+}
