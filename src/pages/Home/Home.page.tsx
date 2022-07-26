@@ -20,13 +20,19 @@ import {
   TwitterIcon,
   ViewIcon,
 } from '@/shared/icons';
-import { Heading, Separator } from '@/shared/ui';
+import { Button, Heading, Separator } from '@/shared/ui';
 
 const Home = () => {
   return (
     <div className='flex flex-col gap-8 p-4'>
       <div className='flex flex-col gap-4'>
         <Heading>UI</Heading>
+        <Button>Click</Button>
+        <Button disabled>Click</Button>
+        <Button type='ghost'>Click</Button>
+        <Button disabled type='ghost'>
+          Click
+        </Button>
         <Separator />
         <Separator className='bg-primary' width={30} />
         <Separator rounded={false} />

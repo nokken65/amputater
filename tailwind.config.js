@@ -9,7 +9,7 @@ module.exports = {
       white: '#fff',
       black: '#000',
       primary: '#46AF7F',
-      text: '#707070',
+      gray: '#707070',
     },
     screens: {
       '6xl': { max: '1920px' },
