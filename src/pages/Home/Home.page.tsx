@@ -23,12 +23,14 @@ import {
 import { Button, Heading, Separator } from '@/shared/ui';
 import { CopyrightsString } from '@/widgets/Copyrights';
 import { Logo } from '@/widgets/Logo';
+import { SocialsLinks } from '@/widgets/Socials';
 
 const Home = () => {
   return (
     <div className='flex flex-col gap-8 p-4'>
       <div className='flex flex-col gap-4'>
         <Heading>UI</Heading>
+        <SocialsLinks />
         <CopyrightsString />
         <Logo />
         <Button>Click</Button>
