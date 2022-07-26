@@ -21,12 +21,16 @@ import {
   ViewIcon,
 } from '@/shared/icons';
 import { Button, Heading, Separator } from '@/shared/ui';
+import { CopyrightsString } from '@/widgets/Copyrights';
+import { Logo } from '@/widgets/Logo';
 
 const Home = () => {
   return (
     <div className='flex flex-col gap-8 p-4'>
       <div className='flex flex-col gap-4'>
         <Heading>UI</Heading>
+        <CopyrightsString />
+        <Logo />
         <Button>Click</Button>
         <Button disabled>Click</Button>
         <Button type='ghost'>Click</Button>

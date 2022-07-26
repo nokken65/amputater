@@ -8,7 +8,7 @@ type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
 };
 
 const HeadingView = ({
-  type = 'h1',
+  type = 'h2',
   uppercase = false,
   capitalize = true,
   className,

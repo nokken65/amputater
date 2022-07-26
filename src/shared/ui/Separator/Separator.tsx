@@ -21,7 +21,7 @@ const SeparatorView = ({
   return (
     <div
       className={clsx(
-        'h-1 w-11 bg-text/50',
+        'h-1 w-11 bg-gray/50',
         rounded && 'rounded-full',
         className,
       )}
