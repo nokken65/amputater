@@ -20,13 +20,17 @@ import {
   TwitterIcon,
   ViewIcon,
 } from '@/shared/icons';
-import { Heading } from '@/shared/ui';
+import { Heading, Separator } from '@/shared/ui';
 
 const Home = () => {
   return (
     <div className='flex flex-col gap-8 p-4'>
       <div className='flex flex-col gap-4'>
         <Heading>UI</Heading>
+        <Separator />
+        <Separator className='bg-primary' width={30} />
+        <Separator rounded={false} />
+        <Separator type='vertical' />
       </div>
       <div className='flex flex-col gap-4'>
         <Heading>Icons</Heading>
