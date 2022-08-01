@@ -1,13 +1,13 @@
 @layer components {
   .btn {
-    @apply flex min-w-[2.5rem] appearance-none items-center justify-center gap-2 p-2 font-bold leading-none transition-colors duration-150 ease-in-out disabled:pointer-events-none;
+    @apply flex min-w-[2.5rem] shrink-0 appearance-none items-center justify-center gap-2 whitespace-nowrap p-2 px-4 font-bold leading-none transition-colors duration-150 ease-in-out disabled:pointer-events-none;
 
     &-primary {
       @apply border-primary bg-primary text-white hover:border-primary/70 hover:bg-primary/70;
     }
 
     &-ghost {
-      @apply border-transparent bg-transparent text-gray hover:border-gray/10 hover:bg-gray/10;
+      @apply border-transparent bg-transparent text-gray hover:border-gray/20 hover:bg-gray/20;
     }
   }
 }

@@ -1,0 +1,18 @@
+.wrapper {
+  @apply flex h-16 w-full overflow-hidden rounded-xl bg-white text-xl drop-shadow;
+
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: transparent;
+
+  &:has(input:focus-within) {
+    outline-color: theme('colors.primary');
+  }
+}
+
+.isShowError {
+  outline-color: theme('colors.red') !important;
+}
+.isValid {
+  outline-color: theme('colors.primary') !important;
+}

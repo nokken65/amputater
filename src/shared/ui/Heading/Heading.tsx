@@ -5,12 +5,14 @@ type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
   type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   uppercase?: boolean;
   capitalize?: boolean;
+  bold?: boolean;
 };
 
 const HeadingView = ({
   type = 'h2',
   uppercase = false,
   capitalize = true,
+  bold = true,
   className,
   children,
   ...props
@@ -23,6 +25,7 @@ const HeadingView = ({
         'text-gray-600 font-bold dark:text-white overflow-hidden',
         !uppercase && capitalize && 'capitalize',
         uppercase && 'uppercase',
+        bold ? 'font-bold' : 'font-normal',
         type === 'h1' && 'text-4xl',
         type === 'h2' && 'text-2xl',
         type === 'h3' && 'text-xl',

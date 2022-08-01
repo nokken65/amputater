@@ -10,6 +10,8 @@ module.exports = {
       black: '#000',
       primary: '#46AF7F',
       gray: '#707070',
+      red: '#ff7878'
+      
     },
     screens: {
       '6xl': { max: '1920px' },
@@ -21,6 +23,10 @@ module.exports = {
       lg: { max: '640px' },
       md: { max: '480px' },
       xs: { max: '320px' },
+      hlg: { raw: '(min-height: 640px)' },
+    },
+    dropShadow: {
+      DEFAULT: '2px 3px 6px rgba(0, 0, 0, 0.25)',
     },
     extend: {
       maxWidth: {

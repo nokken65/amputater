@@ -27,8 +27,8 @@ const SeparatorView = ({
       )}
       style={
         type === 'horizontal'
-          ? { width: `${width}${valueType}`, height: '4px' }
-          : { width: '4px', height: `${height}${valueType}` }
+          ? { width: `${width}${valueType}`, height: '2px' }
+          : { width: '2px', height: `${height}${valueType}` }
       }
     />
   );

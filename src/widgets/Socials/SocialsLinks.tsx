@@ -1,5 +1,5 @@
+import { Link } from 'atomic-router-react';
 import { memo, ReactNode, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 
 import {
   FacebookIcon,
@@ -30,12 +30,14 @@ const SocialsLinksView = () => {
     <ul className='flex gap-4'>
       {items.map((item, index) => (
         <li key={`id-${index.toString()}`}>
-          <Link
-            className='transition-colors duration-150 ease-in-out hover:text-primary'
-            to={item.href}
-          >
-            {item.icon}
-          </Link>
+          <div>
+            <Link
+              className='transition-colors duration-150 ease-in-out hover:text-primary'
+              to={item.href}
+            >
+              {item.icon}
+            </Link>
+          </div>
         </li>
       ))}
     </ul>

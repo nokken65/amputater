@@ -24,7 +24,7 @@ const ButtonView = ({
     <button
       className={clsx(
         'btn',
-        rounded && 'rounded-lg',
+        rounded && 'rounded-xl',
         bordered && 'border-2',
         type === 'primary' && 'btn-primary',
         type === 'ghost' && 'btn-ghost',

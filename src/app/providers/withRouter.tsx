@@ -1,5 +1,9 @@
+import { createHistoryRouter } from 'atomic-router';
+import { RouterProvider } from 'atomic-router-react';
 import { ReactNode } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
-export const withRouter = (component: () => ReactNode) => () =>
-  <BrowserRouter>{component()}</BrowserRouter>;
+export const withRouter =
+  (router: ReturnType<typeof createHistoryRouter>) =>
+  (component: () => ReactNode) =>
+  () =>
+    <RouterProvider router={router}>{component()}</RouterProvider>;

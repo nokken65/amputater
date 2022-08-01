@@ -1,7 +1,9 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
-import { defineConfig, splitVendorChunkPlugin } from 'vite';
+import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
+import sassDts from 'vite-plugin-sass-dts';
+import { ViteWebfontDownload } from 'vite-plugin-webfont-dl';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
@@ -15,20 +17,32 @@ export default defineConfig({
     viteCompression({
       algorithm: 'gzip',
     }),
-    splitVendorChunkPlugin(),
+    sassDts({ enabledMode: ['development', 'production'] }),
     react(),
     tsconfigPaths(),
+    ViteWebfontDownload([
+      'https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap',
+    ]),
   ],
   clearScreen: false,
   build: {
-    sourcemap: false,
+    sourcemap: true,
     cssCodeSplit: true,
     minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
-          'effector-vendor': ['effector', '@effector/reflect'],
+          'effector-vendor': [
+            'effector',
+            'effector-react',
+            '@effector/reflect',
+            'effector-react-form',
+          ],
+          'popper-vendor': ['react-popper', '@popperjs/core'],
+          'router-vendor': ['atomic-router', 'atomic-router-react', 'history'],
+          'supabase-vendor': ['@supabase/supabase-js'],
+          'other-vendor': ['yup', 'uuid', 'clsx'],
         },
       },
     },

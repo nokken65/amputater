@@ -2,10 +2,12 @@ import { createRoot } from 'react-dom/client';
 
 import { App } from '@/app';
 
-const appRootContainer = document.getElementById('app-root');
+import { createWrapperAndAppendToBody } from './shared/utils/createWrapperAndAppendToBody';
+
+let appRootContainer = document.getElementById('app-root');
 
 if (!appRootContainer) {
-  throw new Error("Cannot find element with id 'root'");
+  appRootContainer = createWrapperAndAppendToBody('app-root', true);
 }
 
 createRoot(appRootContainer).render(<App />);

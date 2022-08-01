@@ -1,73 +1,45 @@
-import {
-  AddIcon,
-  ArrowIcon,
-  ClickIcon,
-  CopyIcon,
-  DnDIcon,
-  EditIcon,
-  FacebookIcon,
-  FilterIcon,
-  GithubIcon,
-  InstagramIcon,
-  LinkIcon,
-  LogoIcon,
-  RemoveIcon,
-  SearchIcon,
-  SendIcon,
-  SortIcon,
-  StatsIcon,
-  TelegramIcon,
-  TwitterIcon,
-  ViewIcon,
-} from '@/shared/icons';
-import { Button, Heading, Separator } from '@/shared/ui';
-import { CopyrightsString } from '@/widgets/Copyrights';
-import { Logo } from '@/widgets/Logo';
-import { SocialsLinks } from '@/widgets/Socials';
+import { userModel } from '@/entities/User';
+import { GenerateShortLinkForm } from '@/features/generateShortLink';
+import { LogoIcon } from '@/shared/icons';
+import { supabase } from '@/shared/lib/supabase';
+import { Button, Heading } from '@/shared/ui';
 
 const Home = () => {
+  const handleClick = () => {
+    const user = supabase.auth.session()?.user;
+    const token = supabase.auth.session()?.access_token;
+    if (user && token) {
+      fetch('http://localhost:8787', {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          token,
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
+  };
+
   return (
-    <div className='flex flex-col gap-8 p-4'>
-      <div className='flex flex-col gap-4'>
-        <Heading>UI</Heading>
-        <SocialsLinks />
-        <CopyrightsString />
-        <Logo />
-        <Button>Click</Button>
-        <Button disabled>Click</Button>
-        <Button type='ghost'>Click</Button>
-        <Button disabled type='ghost'>
-          Click
-        </Button>
-        <Separator />
-        <Separator className='bg-primary' width={30} />
-        <Separator rounded={false} />
-        <Separator type='vertical' />
+    <div className='flex w-full flex-col gap-4'>
+      <div className='flex min-h-screen flex-col items-center justify-center gap-20 pb-12 hlg:gap-36'>
+        <Button onClick={handleClick}>Click</Button>
+        <Heading
+          uppercase
+          className='text-center !text-5xl !font-semibold !leading-relaxed'
+        >
+          little <mark>url</mark>. big <mark>control</mark>.
+        </Heading>
+        <LogoIcon className='h-fit w-12' />
       </div>
-      <div className='flex flex-col gap-4'>
-        <Heading>Icons</Heading>
-        <div className='flex flex-wrap gap-4'>
-          <LogoIcon className='h-6 w-fit ' />
-          <LinkIcon className='h-6 w-fit text-primary' />
-          <CopyIcon className='h-6 w-fit text-primary' />
-          <GithubIcon className='h-6 w-fit text-primary' />
-          <TelegramIcon className='h-6 w-fit text-primary' />
-          <FacebookIcon className='h-6 w-fit text-primary' />
-          <TwitterIcon className='h-6 w-fit text-primary' />
-          <InstagramIcon className='h-6 w-fit text-primary' />
-          <AddIcon className='h-6 w-fit text-primary' />
-          <ViewIcon className='h-6 w-fit text-primary' />
-          <ClickIcon className='h-6 w-fit text-primary' />
-          <SearchIcon className='h-6 w-fit text-primary' />
-          <SortIcon className='h-6 w-fit text-primary' />
-          <FilterIcon className='h-6 w-fit text-primary' />
-          <StatsIcon className='h-6 w-fit text-primary' />
-          <EditIcon className='h-6 w-fit text-primary' />
-          <RemoveIcon className='h-6 w-fit text-primary' />
-          <DnDIcon className='h-6 w-fit text-primary' />
-          <ArrowIcon className='h-6 w-fit text-primary' />
-          <SendIcon className='h-6 w-fit text-primary' />
-        </div>
+      <div className='flex w-full flex-col items-center gap-14 px-4 pb-36'>
+        <p className='max-w-xl text-center text-2xl'>
+          Copy the shortened link and share it in messages, texts, posts,
+          websites and other locations.
+        </p>
+        <GenerateShortLinkForm />
       </div>
     </div>
   );
