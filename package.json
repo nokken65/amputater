@@ -2,6 +2,9 @@
   "name": "amputater",
   "version": "1.0.0",
   "scripts": {
+    "worker:publish": "wrangler publish",
+    "worker:build": "wrangler build",
+    "worker:dev": "wrangler dev",
     "dev": "vite",
     "build": "vite build",
     "preview": "http-server dist -p 3000 -g -b",
@@ -33,6 +36,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "http-server": "^14.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "nanoid": "^4.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.12",
@@ -43,7 +48,8 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-sass-dts": "^1.1.37",
     "vite-plugin-webfont-dl": "^2.2.0",
-    "vite-tsconfig-paths": "^3.5.0"
+    "vite-tsconfig-paths": "^3.5.0",
+    "wrangler": "^2.0.23"
   },
   "dependencies": {
     "@effector/reflect": "^8.0.0",

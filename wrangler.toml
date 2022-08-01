@@ -1,0 +1,13 @@
+name = "ampr"
+main = "worker/index.js"
+compatibility_date = "2022-08-01"
+workers_dev = true
+node_compat = true
+
+kv_namespaces = [
+  { binding = "AMPR_LINKS", id = "c2b75b67e12b45128ca0e185c33be88b", preview_id = "d9b3bda1040a41c99dc860e2e161c535" },
+]
+
+[vars]
+SUPABASE_URL="https://vwaxeqosappblifimijk.supabase.co"
+SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3YXhlcW9zYXBwYmxpZmltaWprIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTkxODE4MzEsImV4cCI6MTk3NDc1NzgzMX0.BMK0JcC9I7vhFrThKWUQmBjaZOfljJey3eGSCPsCx2g"

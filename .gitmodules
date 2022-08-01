@@ -1,3 +1,0 @@
-[submodule "amputator-worker"]
-	path = worker
-	url = https://github.com/nokken65/amputator-worker.git
