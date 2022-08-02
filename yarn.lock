@@ -1128,6 +1128,7 @@ __metadata:
     effector: ^22.3.0
     effector-react: ^22.1.4
     effector-react-form: ^2.2.9
+    effector-storage: ^5.0.0
     eslint: ^8.20.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-prettier: ^8.5.0
@@ -1923,6 +1924,15 @@ __metadata:
     effector: ^22.0.2
     react: ">=16.8.0 <19.0.0"
   checksum: 81bb8272718d1954889feb75d68605fc69015917f6528bd962e84879c488101a19d27800dcbb3d171c405e1a782d98fdfce4e8581f01effcb9117402f4200a59
+  languageName: node
+  linkType: hard
+
+"effector-storage@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "effector-storage@npm:5.0.0"
+  peerDependencies:
+    effector: ">=21.0.0"
+  checksum: 82a7e8491826d73436e4c6d887ff2c96f25ebfa79577b79c2e11a498bd035214514ad19a17e62944bd004d03bf3b6ad9d125ff5477f08ee0d7989d177d2b3471
   languageName: node
   linkType: hard
 

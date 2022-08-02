@@ -36,7 +36,7 @@ const Items = () => {
 
 const NavigationView = () => {
   return (
-    <nav className='ml-auto flex items-center gap-4'>
+    <nav className='flex items-center gap-4'>
       <Items />
     </nav>
   );

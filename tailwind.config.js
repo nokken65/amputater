@@ -9,9 +9,14 @@ module.exports = {
       white: '#fff',
       black: '#000',
       primary: '#46AF7F',
-      gray: '#707070',
-      red: '#ff7878'
-      
+      gray: {
+        50: '#e8e8e8',
+        200: '#a6a6a6',
+        DEFAULT: '#707070',
+        400: '#3e3e3e',
+        600: '#272727',
+      },
+      red: '#ff7878',
     },
     screens: {
       '6xl': { max: '1920px' },
@@ -34,5 +39,6 @@ module.exports = {
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 };

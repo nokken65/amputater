@@ -22,7 +22,7 @@ const HeadingView = ({
     {
       ...props,
       className: clsx(
-        'text-gray-600 font-bold dark:text-white overflow-hidden',
+        'text-gray font-bold dark:text-white overflow-hidden',
         !uppercase && capitalize && 'capitalize',
         uppercase && 'uppercase',
         bold ? 'font-bold' : 'font-normal',

@@ -1,10 +1,10 @@
 import { Controller, SetValueParams } from 'effector-react-form';
 import { memo } from 'react';
 
+import { SUPPORTED_IMAGE_FORMATS } from '@/shared/constants';
 import { InputImageField, InputImageFieldProps } from '@/shared/ui';
 
 import { Tooltip } from '../Tooltip';
-import { SUPPORTED_IMAGE_FORMATS } from '@/shared/constants';
 
 type InputImageProps = Omit<
   InputImageFieldProps,
@@ -33,9 +33,17 @@ const InputImageView = ({
     >
       <InputImageField
         {...props}
+        imageUrl={
+          value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
+            ? URL.createObjectURL(value)
+            : `${
+                import.meta.env.VITE_SUPABASE_URL
+              }/storage/v1/object/public/avatars/default.jpg`
+        }
+        isShowError={!!error}
+        isValid={!error}
         name={name}
         onBlur={onBlur}
-        onFocus={onFocus}
         onChange={(e) => {
           if (
             e.target.files?.length &&
@@ -44,14 +52,7 @@ const InputImageView = ({
             setValue({ field: name, value: e.target.files[0] });
           }
         }}
-        isShowError={!!error}
-        isValid={!error}
-        imageUrl={
-          value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
-            ? URL.createObjectURL(value)
-            : import.meta.env.VITE_SUPABASE_URL +
-              '/storage/v1/object/public/avatars/default.jpg'
-        }
+        onFocus={onFocus}
       />
     </Tooltip>
   );

@@ -21,15 +21,27 @@ export const handleAddLink = async (req) => {
     supabase.auth.setAuth(token);
     const decodedToken = jwt.decode(token);
 
+    const { count, error: countError } = await supabase
+      .from('links')
+      .select('id', { count: 'exact' });
+
+    if (countError || count === null) {
+      throw countError;
+    }
+
+    const label = `Link #${count}`;
+
     const id = nanoid(10);
-    const origin = new URL(req.url).origin;
+    const { hostname, origin } = new URL(req.url);
 
     const { data, error } = await supabase
       .from('links')
       .insert({
         id,
         userId: decodedToken.sub,
-        url: origin + '/' + id,
+        label,
+        url: hostname + '/' + id,
+        fullUrl: origin + '/' + id,
         original: reqData.url,
       })
       .single();

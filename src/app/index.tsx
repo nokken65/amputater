@@ -6,8 +6,9 @@ import { ReactNode } from 'react';
 import { userModel } from '@/entities/User';
 import { Routing } from '@/pages';
 import { router } from '@/shared/lib/atomic-router';
-
 import { withProviders } from './providers';
+
+import '@/entities/ShortLink';
 
 const PureAppView = () => {
   return <Routing />;

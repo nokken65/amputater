@@ -2,6 +2,7 @@ import { Link } from 'atomic-router-react';
 import { memo } from 'react';
 
 import { ProfileCompact } from '@/entities/User';
+import { DarkModeToggler } from '@/features/toggleDarkMode';
 import { supabaseApi } from '@/shared/api';
 import { linksRoute, settingsRoute } from '@/shared/config/routes';
 import { Button } from '@/shared/ui';
@@ -13,6 +14,7 @@ const HeaderView = () => {
   return (
     <header className='flex h-44 items-center justify-between gap-4 px-4 3xl:h-28 3xl:px-12'>
       <Logo />
+      <DarkModeToggler />
       <Navigation />
       <ProfileCompact
         popoverContent={

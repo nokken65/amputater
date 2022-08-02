@@ -7,24 +7,31 @@
 @layer base {
   html {
     font-size: 16px;
-    color: theme('colors.gray');
+    color: theme('colors.gray.DEFAULT');
   }
 
   body {
-    background-image: url('/assets/images/lines.svg'),
-      radial-gradient(
-        102.19% 322.96% at 97.92% 91.06%,
-        #d4d4d4 0%,
-        #ffffff 100%
-      );
+    background-color: theme('colors.gray.50');
+    background-image: url('/assets/images/lines.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 100px;
+  }
 
-    background-repeat: no-repeat, no-repeat;
-    background-size: cover, cover;
-    background-position: center 100px, center;
+  .dark > body {
+    background-color: theme('colors.gray.600');
   }
 
   mark {
     @apply bg-transparent text-primary;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+    -webkit-transition-delay: 9999s;
   }
 }
 

@@ -2,7 +2,7 @@ import { User } from '@supabase/supabase-js';
 import { createEffect, sample } from 'effector';
 
 import { SignInWithEmailParams, supabaseApi } from '@/shared/api';
-import { homeRoute } from '@/shared/config/routes';
+import { linksRoute } from '@/shared/config/routes';
 
 const signInWithEmailFx = createEffect<SignInWithEmailParams, User>(
   async (props) => {
@@ -18,7 +18,7 @@ const signInWithEmailFx = createEffect<SignInWithEmailParams, User>(
 
 sample({
   clock: signInWithEmailFx.doneData,
-  target: homeRoute.open,
+  target: linksRoute.open,
 });
 
 export const effects = {

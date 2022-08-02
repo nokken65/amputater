@@ -1,3 +1,2 @@
-export * as shortLinkApi from './api';
-export * from './model/model';
+export * as shortLinkModel from './model';
 export * from './ui';

@@ -4,10 +4,17 @@ import { deleteLinkFromKV } from './deleteLinkFromKV';
 export const handleDeleteLink = async (req) => {
   try {
     const reqData = await req.json();
+
     if (!reqData) {
       throw Error;
     }
+
     const token = req.headers.get('token');
+
+    if (!token) {
+      throw Error;
+    }
+
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     supabase.auth.setAuth(token);

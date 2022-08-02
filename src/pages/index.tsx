@@ -66,6 +66,12 @@ sample({
   target: routes.signInRoute.open,
 });
 
+sample({
+  clock: $variant,
+  filter: (v) => v === 'public',
+  target: routes.homeRoute.open,
+});
+
 const Routes = variant({
   source: $variant,
   cases: {

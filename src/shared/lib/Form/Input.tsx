@@ -17,12 +17,7 @@ const InputView = ({ controller, ...props }: InputProps) => {
 
   return (
     <Tooltip content={error} disabled={!isShowError}>
-      <InputField
-        {...props}
-        {...input}
-        isShowError={isShowError}
-        isValid={!error}
-      />
+      <InputField {...props} {...input} isShowError={isShowError} />
     </Tooltip>
   );
 };
