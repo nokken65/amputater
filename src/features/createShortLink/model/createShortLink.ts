@@ -22,7 +22,7 @@ const createShortLinkFx = createEffect<
   return data;
 });
 
-const $createShortLinkIsLoading = createShortLinkFx.pending;
+const $createShortLinkIsSubmitting = createShortLinkFx.pending;
 
 shortLinkModel.selectors.$shortLinks.on(
   createShortLinkFx.doneData,
@@ -34,5 +34,5 @@ export const effects = {
 };
 
 export const selectors = {
-  $createShortLinkIsLoading,
+  $createShortLinkIsSubmitting,
 };

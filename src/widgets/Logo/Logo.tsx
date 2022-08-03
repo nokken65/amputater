@@ -7,9 +7,9 @@ import { Heading } from '@/shared/ui';
 
 const LogoView = () => {
   return (
-    <Link className='flex w-fit items-center gap-6' to={homeRoute}>
-      <LogoIcon className='h-9 w-fit' />
-      <Heading uppercase className='text-4xl !font-normal' type='h1'>
+    <Link className='flex items-center gap-4' to={homeRoute}>
+      <LogoIcon className='h-9 w-9' />
+      <Heading uppercase className='text-4xl lg:text-2xl' type='h1'>
         amputater
       </Heading>
     </Link>

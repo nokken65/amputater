@@ -4,8 +4,6 @@ import { memo } from 'react';
 import { SUPPORTED_IMAGE_FORMATS } from '@/shared/constants';
 import { InputImageField, InputImageFieldProps } from '@/shared/ui';
 
-import { Tooltip } from '../Tooltip';
-
 type InputImageProps = Omit<
   InputImageFieldProps,
   'name' | 'value' | 'onChange' | 'onFocus' | 'onBlur' | 'imageUrl'
@@ -26,35 +24,29 @@ const InputImageView = ({
   } = controller();
 
   return (
-    <Tooltip
-      content={error}
-      disabled={!isShowError && !error}
-      wrapperClassName='!w-fit'
-    >
-      <InputImageField
-        {...props}
-        imageUrl={
-          value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
-            ? URL.createObjectURL(value)
-            : `${
-                import.meta.env.VITE_SUPABASE_URL
-              }/storage/v1/object/public/avatars/default.jpg`
+    <InputImageField
+      {...props}
+      imageUrl={
+        value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
+          ? URL.createObjectURL(value)
+          : `${
+              import.meta.env.VITE_SUPABASE_URL
+            }/storage/v1/object/public/avatars/default.jpg`
+      }
+      isShowError={!!error}
+      isValid={!error}
+      name={name}
+      onBlur={onBlur}
+      onChange={(e) => {
+        if (
+          e.target.files?.length &&
+          SUPPORTED_IMAGE_FORMATS.includes(e.target.files[0].type)
+        ) {
+          setValue({ field: name, value: e.target.files[0] });
         }
-        isShowError={!!error}
-        isValid={!error}
-        name={name}
-        onBlur={onBlur}
-        onChange={(e) => {
-          if (
-            e.target.files?.length &&
-            SUPPORTED_IMAGE_FORMATS.includes(e.target.files[0].type)
-          ) {
-            setValue({ field: name, value: e.target.files[0] });
-          }
-        }}
-        onFocus={onFocus}
-      />
-    </Tooltip>
+      }}
+      onFocus={onFocus}
+    />
   );
 };
 

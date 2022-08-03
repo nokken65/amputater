@@ -1,25 +1,20 @@
-import clsx from 'clsx';
 import { memo } from 'react';
 
 import { CopyIcon } from '@/shared/icons';
 import { Button } from '@/shared/ui';
-import { copyToClipBoard } from '@/shared/utils/copyToClipboard';
 
 type CopyShortLinkProps = {
   url: string;
-  className?: string;
+  onClick: () => void;
 };
 
-const CopyShortLinkView = ({ url, className }: CopyShortLinkProps) => {
+const CopyShortLinkView = ({ url, onClick }: CopyShortLinkProps) => {
   return (
     <Button
-      className={clsx(
-        'flex w-fit items-center justify-between gap-4 overflow-hidden text-ellipsis p-4 text-center text-lg font-semibold',
-        className,
-      )}
-      onClick={() => copyToClipBoard(url, () => alert(`Text copied: ${url}`))}
+      className='flex w-fit max-w-full items-center justify-between gap-4 p-4 text-center text-lg font-semibold drop-shadow lg:w-full lg:rounded-none'
+      onClick={onClick}
     >
-      {url}
+      <p className='w-full overflow-hidden overflow-ellipsis'>{url}</p>
       <CopyIcon className='h-7 w-7 shrink-0' />
     </Button>
   );

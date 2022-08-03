@@ -19,19 +19,13 @@ export const handleAddLink = async (req) => {
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     supabase.auth.setAuth(token);
+
     const decodedToken = jwt.decode(token);
 
-    const { count, error: countError } = await supabase
-      .from('links')
-      .select('id', { count: 'exact' });
-
-    if (countError || count === null) {
-      throw countError;
-    }
-
-    const label = `Link #${count}`;
-
     const id = nanoid(10);
+
+    const label = `Link ${id}`;
+
     const { hostname, origin } = new URL(req.url);
 
     const { data, error } = await supabase

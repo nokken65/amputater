@@ -15,15 +15,11 @@ const DarkModeTogglerView = ({
   toggleDarkMode,
 }: DarkModeTogglerProps) => {
   return (
-    <Button
-      className='ml-auto text-gray hover:text-white'
-      type='ghost'
-      onClick={toggleDarkMode}
-    >
+    <Button className='px-3' type='ghost' onClick={toggleDarkMode}>
       {isDarkMode ? (
-        <DarkThemeIcon className='h-6 w-6' />
+        <DarkThemeIcon className='h-5 w-5' />
       ) : (
-        <LightThemeIcon className='h-6 w-6' />
+        <LightThemeIcon className='h-5 w-5' />
       )}
     </Button>
   );

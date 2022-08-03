@@ -4,20 +4,6 @@ module.exports = {
     fontFamily: {
       sans: ['Lato', 'sans-serif'],
     },
-    colors: {
-      transparent: 'transparent',
-      white: '#fff',
-      black: '#000',
-      primary: '#46AF7F',
-      gray: {
-        50: '#e8e8e8',
-        200: '#a6a6a6',
-        DEFAULT: '#707070',
-        400: '#3e3e3e',
-        600: '#272727',
-      },
-      red: '#ff7878',
-    },
     screens: {
       '6xl': { max: '1920px' },
       '5xl': { max: '1600px' },
@@ -32,10 +18,17 @@ module.exports = {
     },
     dropShadow: {
       DEFAULT: '2px 3px 6px rgba(0, 0, 0, 0.25)',
+      none: '0 0 #0000',
     },
     extend: {
+      colors: {
+        primary: '#46AF7F',
+      },
       maxWidth: {
         screen: '100vw',
+      },
+      animation: {
+        'spin-fast': 'spin 0.4s linear infinite',
       },
     },
   },

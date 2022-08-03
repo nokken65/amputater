@@ -1,9 +1,9 @@
 import { Controller } from 'effector-react-form';
 import { memo } from 'react';
 
-import { InputField, InputFieldProps } from '@/shared/ui';
+import { FieldErrors, InputField, InputFieldProps } from '@/shared/ui';
 
-import { Tooltip } from '../Tooltip';
+import { Popover } from '../Popover';
 
 type InputProps = Omit<
   InputFieldProps,
@@ -16,9 +16,13 @@ const InputView = ({ controller, ...props }: InputProps) => {
   const { input, error, isShowError } = controller();
 
   return (
-    <Tooltip content={error} disabled={!isShowError}>
+    <Popover
+      contentNode={<FieldErrors>{error}</FieldErrors>}
+      disabled={!isShowError}
+      placement='top-start'
+    >
       <InputField {...props} {...input} isShowError={isShowError} />
-    </Tooltip>
+    </Popover>
   );
 };
 

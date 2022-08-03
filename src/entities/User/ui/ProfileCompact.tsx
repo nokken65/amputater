@@ -1,14 +1,12 @@
-import { variant } from '@effector/reflect';
-import { Link } from 'atomic-router-react';
-import { combine } from 'effector';
+import { reflect } from '@effector/reflect';
 import { ReactNode } from 'react';
 
-import { profileRoute } from '@/shared/config/routes';
+import { LoaderRingIcon } from '@/shared/icons';
 import { Popover } from '@/shared/lib/Popover';
 import { Profile } from '@/shared/types';
+import { Button } from '@/shared/ui';
 
 import { selectors } from '../model';
-import { UserLoginLink } from './UserLoginLink';
 
 type ProfileCompactProps = {
   profile: Profile | null;
@@ -23,41 +21,26 @@ const ProfileCompactView = ({
     <Popover
       contentNode={popoverContent}
       placement='bottom-end'
-      triggerNode={
-        <Link
-          className='flex h-fit items-center justify-between gap-2 rounded-full bg-primary pl-4 text-base font-bold normal-case text-white drop-shadow'
-          to={profileRoute}
-        >
-          {profile?.name}
+      triggerBehavior='click'
+    >
+      {profile ? (
+        <Button className='!rounded-full p-0 drop-shadow'>
+          <p className='ml-4 lg:hidden'>{profile.name}</p>
           <img
             alt='profile'
             className='h-12 w-12 rounded-full'
-            src={profile?.avatarUrl}
+            src={profile.avatarUrl}
           />
-        </Link>
-      }
-    />
+        </Button>
+      ) : (
+        <LoaderRingIcon className='h-10 w-fit' />
+      )}
+    </Popover>
   );
 };
 
-export const ProfileCompact = variant({
-  source: combine(
-    {
-      hasProfile: selectors.$hasProfile,
-      isAuthorized: selectors.$isAuthorized,
-    },
-    ({ hasProfile, isAuthorized }) => {
-      if (!isAuthorized) return 'unauthorized';
-      if (!hasProfile) return 'loading';
-
-      return 'ready';
-    },
-  ),
-  cases: {
-    unauthorized: () => <UserLoginLink />,
-    loading: () => <div className='h-12 w-12 rounded-full bg-primary' />,
-    ready: ProfileCompactView,
-  },
+export const ProfileCompact = reflect({
+  view: ProfileCompactView,
   bind: {
     profile: selectors.$profile,
   },

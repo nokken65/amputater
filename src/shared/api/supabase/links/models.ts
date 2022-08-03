@@ -1,3 +1,3 @@
 import { ShortLink } from '@/shared/types';
 
-export type GetAllShortLinksParams = Pick<ShortLink, 'userId'>;
+export type UpdateShortLinkLabelParams = Pick<ShortLink, 'label' | 'id'>;

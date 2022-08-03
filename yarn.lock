@@ -1121,12 +1121,12 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.30.7
     "@typescript-eslint/parser": ^5.30.7
     "@vitejs/plugin-react": ^2.0.0
-    atomic-router: ^0.5.0-dev.22
-    atomic-router-react: ^0.5.0-dev.2
+    atomic-router: ^0.6.0
+    atomic-router-react: ^0.5.0
     autoprefixer: ^10.4.7
     clsx: ^1.2.1
     effector: ^22.3.0
-    effector-react: ^22.1.4
+    effector-react: ^22.1.6
     effector-react-form: ^2.2.9
     effector-storage: ^5.0.0
     eslint: ^8.20.0
@@ -1152,10 +1152,10 @@ __metadata:
     react-dom: ^18.2.0
     react-popper: ^2.3.0
     sass: ^1.54.0
-    tailwindcss: ^3.1.6
+    tailwindcss: ^3.1.7
     typescript: ^4.7.4
     uuid: ^8.3.2
-    vite: ^3.0.2
+    vite: ^3.0.4
     vite-plugin-compression: ^0.5.1
     vite-plugin-sass-dts: ^1.1.37
     vite-plugin-webfont-dl: ^2.2.0
@@ -1301,29 +1301,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"atomic-router-react@npm:^0.5.0-dev.2":
-  version: 0.5.0-dev.2
-  resolution: "atomic-router-react@npm:0.5.0-dev.2"
+"atomic-router-react@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "atomic-router-react@npm:0.5.0"
   dependencies:
     clsx: ^1.1.1
   peerDependencies:
-    atomic-router: ^0.5.0-dev
+    atomic-router: ^0.5.0
     effector: ^22
     effector-react: ^22
     react: ^17 || ^18
-  checksum: 26295504f746f77e199e2fe94c7069fa698d0ebdc0b58fdaf480ffb54f68bfb36cfb9a7dc7279a9c3c97ab96bd1bfcc60b6a4bb2fa6dae4f5a2af4fea2d3c0c2
+  checksum: 9ef3bc6ff15aa6b6be4ac7fa26dad2dcc722b536c0eafd9f93008812c73f22b3e21609921a320a7c03c62f41b18223734d28f1cada4c26d564d4e7e0bfd4c391
   languageName: node
   linkType: hard
 
-"atomic-router@npm:^0.5.0-dev.22":
-  version: 0.5.0-dev.22
-  resolution: "atomic-router@npm:0.5.0-dev.22"
+"atomic-router@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "atomic-router@npm:0.6.0"
   dependencies:
     path-to-regexp: ^6.2.0
   peerDependencies:
     effector: ^22
     history: ^5.3.0
-  checksum: 059bf6881479490d738e686e475cd36b526b5a686d2b1e6c2a561f74ec818819ea621d1b1af3e13d156fd5a780bcd2788f2821b5e35492b1344576485f5072a6
+  checksum: f3060de76e7aba94118c6693df1d2fe96b6918e3d367320519199ce89c26571da60fe1d2a526e77b13e386dc53dea8383d194ad80458a1ac53458d212ea028a5
   languageName: node
   linkType: hard
 
@@ -1915,15 +1915,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"effector-react@npm:^22.1.4":
-  version: 22.1.4
-  resolution: "effector-react@npm:22.1.4"
+"effector-react@npm:^22.1.6":
+  version: 22.1.6
+  resolution: "effector-react@npm:22.1.6"
   dependencies:
     use-sync-external-store: ^1.0.0
   peerDependencies:
     effector: ^22.0.2
     react: ">=16.8.0 <19.0.0"
-  checksum: 81bb8272718d1954889feb75d68605fc69015917f6528bd962e84879c488101a19d27800dcbb3d171c405e1a782d98fdfce4e8581f01effcb9117402f4200a59
+  checksum: ec76dcb6ca3c722e0cdb7f736fbe93cbec29cea8e9297ee103ab85d7281140e8d40d534d08ee207f756ca86e670134557caeb646db0c54b1c65866dfd7c674dd
   languageName: node
   linkType: hard
 
@@ -3867,7 +3867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lilconfig@npm:^2.0.5":
+"lilconfig@npm:^2.0.5, lilconfig@npm:^2.0.6":
   version: 2.0.6
   resolution: "lilconfig@npm:2.0.6"
   checksum: 40a3cd72f103b1be5975f2ac1850810b61d4053e20ab09be8d3aeddfe042187e1ba70b4651a7e70f95efa1642e7dc8b2ae395b317b7d7753b241b43cef7c0f7d
@@ -5454,9 +5454,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.1.6":
-  version: 3.1.6
-  resolution: "tailwindcss@npm:3.1.6"
+"tailwindcss@npm:^3.1.7":
+  version: 3.1.7
+  resolution: "tailwindcss@npm:3.1.7"
   dependencies:
     arg: ^5.0.2
     chokidar: ^3.5.3
@@ -5467,7 +5467,7 @@ __metadata:
     fast-glob: ^3.2.11
     glob-parent: ^6.0.2
     is-glob: ^4.0.3
-    lilconfig: ^2.0.5
+    lilconfig: ^2.0.6
     normalize-path: ^3.0.0
     object-hash: ^3.0.0
     picocolors: ^1.0.0
@@ -5485,7 +5485,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 90719c6fd0dcdda5c8e2882ad421048c9dd90890e0c118d12ff3ec31adba53eb2df8fed1ed203e728e5b32297e1cc207df463a6b196d37344a63fde9f67c52b6
+  checksum: adbc9869b72f741e9a0fc281b79710863617a588fd5d897316b676f789b6482c79f46f324223300ca962afbe55bed3ec16a37a6ccf4bb2c99c53cf8c5dd9700d
   languageName: node
   linkType: hard
 
@@ -5847,9 +5847,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "vite@npm:3.0.2"
+"vite@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "vite@npm:3.0.4"
   dependencies:
     esbuild: ^0.14.47
     fsevents: ~2.3.2
@@ -5875,7 +5875,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10aebec0df89bbdba9a0c72dc35ec3ec5be0b50216fc7a1e04b5da11de244033b1cbe83a95b1af67be176fc09e05698387d3cc9dcbee64e009dd43811f8717e9
+  checksum: f13eceb94f7b399942ce5e7c10df73314f7b073171d6594228b078cc1203042c4cdb9e8356fe64ad444c3533c31437abb3c64ac56478f0865fab598e924cf68b
   languageName: node
   linkType: hard
 

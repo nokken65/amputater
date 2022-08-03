@@ -3,11 +3,11 @@
     @apply flex shrink-0 appearance-none items-center justify-center gap-2 whitespace-nowrap p-2 font-bold leading-none transition-colors duration-150 ease-in-out disabled:pointer-events-none;
 
     &-primary {
-      @apply border-primary bg-primary text-white hover:border-primary/70 hover:bg-primary/70;
+      @apply border-emerald-500 bg-emerald-500 text-white hover:border-emerald-500/70 hover:bg-emerald-500/70;
     }
 
     &-ghost {
-      @apply border-transparent bg-transparent text-gray hover:border-gray/20 hover:bg-gray/20 hover:text-gray-400/70 dark:hover:text-white;
+      @apply border-transparent bg-transparent text-slate-700 hover:border-slate-400/20 hover:bg-slate-400/20 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white;
     }
   }
 }

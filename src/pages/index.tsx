@@ -5,6 +5,7 @@ import { lazy, PropsWithChildren, Suspense } from 'react';
 
 import { userModel } from '@/entities/User';
 import * as routes from '@/shared/config/routes';
+import { LoaderRingIcon } from '@/shared/icons';
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 
@@ -21,8 +22,16 @@ const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <Header />
-      <main className='flex flex-col items-center justify-between gap-6 p-4'>
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+      <main className='flex flex-col items-center justify-between gap-6 p-4 lg:px-0'>
+        <Suspense
+          fallback={
+            <div className='flex h-full w-full items-center justify-center'>
+              <LoaderRingIcon className='h-20 w-20 animate-spin-fast' />
+            </div>
+          }
+        >
+          {children}
+        </Suspense>
       </main>
       <Footer />
     </>
@@ -55,8 +64,6 @@ const PrivateRoutes = () => {
 const $variant = userModel.selectors.$isAuthorized.map((is) =>
   is ? 'private' : 'public',
 );
-
-$variant.watch(console.log);
 
 // redirect if private route
 sample({

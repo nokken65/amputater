@@ -10,7 +10,14 @@ type CopyCreatedShortLinkProps = {
 };
 
 const CopyCreatedShortLinkView = ({ link }: CopyCreatedShortLinkProps) => {
-  return link ? <CopyShortLink url={link.url} /> : null;
+  return link ? (
+    <CopyShortLink
+      url={link.url}
+      onClick={() => {
+        alert(link.fullUrl);
+      }}
+    />
+  ) : null;
 };
 
 export const CopyCreatedShortLink = reflect({

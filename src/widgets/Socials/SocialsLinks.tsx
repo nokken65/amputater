@@ -32,7 +32,7 @@ const SocialsLinksView = () => {
         <li key={`id-${index.toString()}`}>
           <div>
             <Link
-              className='transition-colors duration-150 ease-in-out hover:text-primary'
+              className='transition-colors duration-150 ease-in-out hover:text-emerald-500'
               to={item.href}
             >
               {item.icon}

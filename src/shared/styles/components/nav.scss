@@ -1,9 +1,0 @@
-@layer components {
-  .nav {
-    &-item {
-      @apply transition-colors duration-150 ease-in-out hover:text-primary;
-      font-weight: normal !important;
-      font-size: theme('fontSize.xl') !important ;
-    }
-  }
-}

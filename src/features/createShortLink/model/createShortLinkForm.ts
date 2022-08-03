@@ -1,6 +1,7 @@
 import { sample } from 'effector';
 import { createForm } from 'effector-react-form';
 
+import { userModel } from '@/entities/User';
 import { createValidator } from '@/shared/lib/Form';
 
 import { createShortLinkSchema } from '../validation';
@@ -14,7 +15,9 @@ const createShortLinkForm = createForm<CreateShortLinkInputs>({
 
 sample({
   clock: createShortLinkForm.onSubmit,
-  fn: (data) => data.values,
+  source: userModel.selectors.$isAuthorized,
+  filter: Boolean,
+  fn: (_, data) => data.values,
   target: effects.createShortLinkFx,
 });
 

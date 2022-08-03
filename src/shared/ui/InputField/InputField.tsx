@@ -15,14 +15,14 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     return (
       <div
         className={clsx(
-          'input-focus flex h-16 !w-full overflow-hidden rounded-xl bg-white text-xl outline outline-4 outline-transparent drop-shadow dark:bg-gray-400 dark:text-white',
-          isShowError && '!outline-red',
+          'flex h-16 !w-full gap-2 overflow-hidden rounded-xl bg-white text-xl outline outline-4 outline-transparent drop-shadow focus-within:outline-emerald-500 dark:bg-slate-700 dark:text-white lg:rounded-none',
+          isShowError && '!outline-red-400',
           className,
         )}
       >
         {before}
         <input
-          className='flex w-full bg-transparent pl-2 pr-2 text-gray placeholder:text-gray-200 focus-within:outline-none dark:text-white'
+          className='flex w-full bg-transparent  placeholder:text-slate-400 focus-within:outline-none dark:text-white'
           ref={ref}
           size={10}
           {...props}

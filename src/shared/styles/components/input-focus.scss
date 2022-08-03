@@ -1,5 +1,0 @@
-@layer components {
-  .input-focus:has(input:focus-within) {
-    outline-color: theme('colors.primary');
-  }
-}

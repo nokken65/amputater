@@ -1,18 +1,30 @@
 import { Placement } from '@popperjs/core';
-import { memo, ReactNode, useCallback, useRef, useState } from 'react';
+import {
+  memo,
+  PropsWithChildren,
+  ReactNode,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 import { usePopper } from 'react-popper';
-
-import { useOuterClick } from '@/shared/hooks/useOuterClick';
 
 import { Portal } from '../Portal';
 
-type PopoverProps = {
-  triggerNode: ReactNode;
+type PopoverProps = PropsWithChildren<{
   contentNode: ReactNode;
   placement?: Placement;
-};
+  disabled?: boolean;
+  triggerBehavior?: 'click' | 'hover';
+}>;
 
-const PopoverView = ({ triggerNode, contentNode, placement }: PopoverProps) => {
+const PopoverView = ({
+  children,
+  contentNode,
+  placement,
+  disabled = false,
+  triggerBehavior = 'hover',
+}: PopoverProps) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const show = useCallback(() => setIsVisible(true), []);
@@ -20,6 +32,7 @@ const PopoverView = ({ triggerNode, contentNode, placement }: PopoverProps) => {
 
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const popperRef = useRef<HTMLDivElement | null>(null);
+
   const { attributes, styles } = usePopper(
     triggerRef.current,
     popperRef.current,
@@ -28,29 +41,39 @@ const PopoverView = ({ triggerNode, contentNode, placement }: PopoverProps) => {
     },
   );
 
-  useOuterClick<HTMLDivElement>(popperRef, hide);
+  // useOuterClick<HTMLDivElement>(popperRef, () => {
+  //   if (triggerBehavior === 'hover') {
+  //     hide();
+  //   }
+  // });
 
   return (
     <>
-      <div ref={triggerRef} onMouseEnter={show} onMouseLeave={hide}>
-        {triggerNode}
+      <div
+        ref={triggerRef}
+        role='button'
+        tabIndex={-1}
+        onClick={isVisible && triggerBehavior === 'click' ? hide : show}
+        onKeyDown={isVisible && triggerBehavior === 'click' ? hide : show}
+        onMouseEnter={show}
+        onMouseLeave={hide}
+      >
+        {children}
       </div>
-      <Portal containerId='popover-root'>
-        <div
-          className={isVisible ? 'visible' : 'pointer-events-none invisible'}
-          ref={popperRef}
-          role='button'
-          style={styles.popper}
-          tabIndex={-1}
-          onClick={hide}
-          onKeyDown={hide}
-          onMouseEnter={show}
-          onMouseLeave={hide}
-          {...attributes.popper}
-        >
-          {contentNode}
-        </div>
-      </Portal>
+      {!disabled && (
+        <Portal containerId='popover-root'>
+          <div
+            className={isVisible ? 'visible' : 'pointer-events-none invisible'}
+            ref={popperRef}
+            style={styles.popper}
+            onMouseEnter={show}
+            onMouseLeave={hide}
+            {...attributes.popper}
+          >
+            {contentNode}
+          </div>
+        </Portal>
+      )}
     </>
   );
 };

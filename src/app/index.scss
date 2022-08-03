@@ -7,23 +7,23 @@
 @layer base {
   html {
     font-size: 16px;
-    color: theme('colors.gray.DEFAULT');
+    color: theme('colors.slate.700');
   }
 
   body {
-    background-color: theme('colors.gray.50');
+    background-color: theme('colors.slate.100');
     background-image: url('/assets/images/lines.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 100px;
   }
 
-  .dark > body {
-    background-color: theme('colors.gray.600');
+  #app-root {
+    @apply m-0 ml-auto mr-auto flex h-full min-h-screen w-full max-w-7xl flex-col justify-between;
   }
 
   mark {
-    @apply bg-transparent text-primary;
+    @apply bg-transparent text-emerald-500;
   }
 
   input:-webkit-autofill,
@@ -33,8 +33,12 @@
     -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
     -webkit-transition-delay: 9999s;
   }
-}
 
-#app-root {
-  @apply m-0 ml-auto mr-auto flex h-full min-h-screen w-full max-w-7xl flex-col justify-between;
+  html.dark {
+    color: theme('colors.slate.400');
+  }
+
+  .dark body {
+    background-color: theme('colors.slate.800');
+  }
 }

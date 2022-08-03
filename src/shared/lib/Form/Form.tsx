@@ -1,9 +1,21 @@
-import { FormHTMLAttributes, memo } from 'react';
+import { FormHTMLAttributes, memo, useRef } from 'react';
 
-type FormProps = FormHTMLAttributes<HTMLFormElement>;
+import { useOuterClick } from '@/shared/hooks/useOuterClick';
 
-const FormView = ({ children, ...props }: FormProps) => {
-  return <form {...props}>{children}</form>;
+type FormProps = Omit<FormHTMLAttributes<HTMLFormElement>, 'onBlur'> & {
+  onBlur?: () => void;
+};
+
+const FormView = ({ children, onBlur, ...props }: FormProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useOuterClick(formRef, () => (onBlur ? onBlur() : null));
+
+  return (
+    <form ref={formRef} {...props}>
+      {children}
+    </form>
+  );
 };
 
 export const Form = memo(FormView);
