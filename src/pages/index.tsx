@@ -8,6 +8,7 @@ import * as routes from '@/shared/config/routes';
 import { LoaderRingIcon } from '@/shared/icons';
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
+import { NotificationArea } from '@/widgets/NotificationsArea/ui';
 
 const HomePage = lazy(() => import('./Home/Home.page'));
 const AboutPage = lazy(() => import('./About/About.page'));
@@ -34,6 +35,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         </Suspense>
       </main>
       <Footer />
+      <NotificationArea />
     </>
   );
 };

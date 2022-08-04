@@ -4,18 +4,30 @@ import { CopyShortLink } from '@/entities/ShortLink';
 import { ShortLink } from '@/shared/types';
 
 import { selectors } from '../model';
+import {
+  notificationModel,
+  AddNotificationParams,
+} from '@/entities/Notification';
 
 type CopyCreatedShortLinkProps = {
   link: ShortLink | null;
+  notify: (props: AddNotificationParams) => void;
 };
 
-const CopyCreatedShortLinkView = ({ link }: CopyCreatedShortLinkProps) => {
+const CopyCreatedShortLinkView = ({
+  link,
+  notify,
+}: CopyCreatedShortLinkProps) => {
   return link ? (
     <CopyShortLink
       url={link.url}
-      onClick={() => {
-        alert(link.fullUrl);
-      }}
+      onClick={() =>
+        notify({
+          text: `Copied: ${link.fullUrl}`,
+          type: 'info',
+          duration: 8000,
+        })
+      }
     />
   ) : null;
 };
@@ -24,5 +36,6 @@ export const CopyCreatedShortLink = reflect({
   view: CopyCreatedShortLinkView,
   bind: {
     link: selectors.$createdShortLinkUrl,
+    notify: notificationModel.events.addNotification,
   },
 });

@@ -27,8 +27,15 @@ module.exports = {
       maxWidth: {
         screen: '100vw',
       },
+      keyframes: {
+        expire: {
+          '0%': { width: '100%' },
+          '100%': { width: '0%' },
+        },
+      },
       animation: {
         'spin-fast': 'spin 0.4s linear infinite',
+        expire: 'expire linear',
       },
     },
   },

@@ -11,6 +11,7 @@
   }
 
   body {
+    position: relative;
     background-color: theme('colors.slate.100');
     background-image: url('/assets/images/lines.svg');
     background-repeat: no-repeat;
@@ -20,6 +21,10 @@
 
   #app-root {
     @apply m-0 ml-auto mr-auto flex h-full min-h-screen w-full max-w-7xl flex-col justify-between;
+  }
+
+  #notify-root {
+    @apply fixed bottom-0 right-0 h-fit w-80 lg:top-0 lg:w-full;
   }
 
   mark {

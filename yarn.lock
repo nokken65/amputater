@@ -1145,6 +1145,7 @@ __metadata:
     http-server: ^14.1.1
     jsonwebtoken: ^8.5.1
     nanoid: ^4.0.0
+    patronum: ^1.9.0
     postcss: ^8.4.14
     prettier: ^2.7.1
     prettier-plugin-tailwindcss: ^0.1.12
@@ -4609,6 +4610,15 @@ __metadata:
   version: 4.0.0
   resolution: "path-type@npm:4.0.0"
   checksum: 5b1e2daa247062061325b8fdbfd1fb56dde0a448fb1455453276ea18c60685bdad23a445dc148cf87bc216be1573357509b7d4060494a6fd768c7efad833ee45
+  languageName: node
+  linkType: hard
+
+"patronum@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "patronum@npm:1.9.0"
+  peerDependencies:
+    effector: ^22.1.2
+  checksum: 5227a4f7e54d67bbe9a00a8d19b9677dc67bc975c1a81e4fc7fc309c4a16a140f500fb7c564ad7574d6d464a83f0c63fad048ab6a6555181219b348e8bd6661c
   languageName: node
   linkType: hard
 

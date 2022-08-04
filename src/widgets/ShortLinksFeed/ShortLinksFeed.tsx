@@ -21,17 +21,23 @@ import {
 import { ShortLink } from '@/shared/types';
 import { Button } from '@/shared/ui';
 import { copyToClipBoard } from '@/shared/utils/copyToClipboard';
+import {
+  AddNotificationParams,
+  notificationModel,
+} from '@/entities/Notification';
 
 type ShortLinksItemProps = ShortLink & {
-  isEdittingLabelShortLink: string;
+  isEditingLabelShortLink: string;
   openLabelForm: (id: string) => void;
   closeLabelForm: () => void;
+  notify: (props: AddNotificationParams) => void;
 };
 
 const ShortLinksItem = ({
-  isEdittingLabelShortLink,
+  isEditingLabelShortLink,
   openLabelForm,
   closeLabelForm,
+  notify,
   url,
   original,
   fullUrl,
@@ -54,7 +60,15 @@ const ShortLinksItem = ({
             <Button
               className='h-10 w-10'
               type='ghost'
-              onClick={() => copyToClipBoard(fullUrl)}
+              onClick={() =>
+                copyToClipBoard(fullUrl, () =>
+                  notify({
+                    text: `Copied: ${url}`,
+                    type: 'info',
+                    duration: 8000,
+                  }),
+                )
+              }
             >
               <CopyIcon className='h-5 w-5' />
             </Button>
@@ -63,7 +77,7 @@ const ShortLinksItem = ({
         }
         fullUrl={fullUrl}
         labelNode={
-          isEdittingLabelShortLink === id ? (
+          isEditingLabelShortLink === id ? (
             <UpdateShortLinkLabelForm label={label} onBlur={closeLabelForm} />
           ) : (
             <div className='flex items-center gap-2'>
@@ -86,9 +100,10 @@ const ShortLinksItems = list({
   view: ShortLinksItem,
   getKey: ({ id }) => id,
   bind: {
-    isEdittingLabelShortLink: updateShortLinkLabelModel.form.$isOpenId,
+    isEditingLabelShortLink: updateShortLinkLabelModel.form.$isOpenId,
     openLabelForm: updateShortLinkLabelModel.form.open,
     closeLabelForm: updateShortLinkLabelModel.form.close,
+    notify: notificationModel.events.addNotification,
   },
 });
 

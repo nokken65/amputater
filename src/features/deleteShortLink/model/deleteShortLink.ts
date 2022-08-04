@@ -38,6 +38,12 @@ sample({
   target: remove,
 });
 
+sample({
+  clock: deleteShortLinkFx.fail,
+  fn: ({ params: { id } }) => id,
+  target: remove,
+});
+
 shortLinkModel.selectors.$shortLinks.on(
   deleteShortLinkFx.doneData,
   (state, payload) => state.filter(({ id }) => id !== payload.id),
