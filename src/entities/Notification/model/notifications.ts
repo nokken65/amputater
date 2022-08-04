@@ -1,7 +1,9 @@
-import { createEffect, createEvent, createStore, sample } from 'effector';
-import { v4 as uuidv4 } from 'uuid';
+import { createEvent, createStore, sample } from 'effector';
 import { delay } from 'patronum/delay';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Notification } from '@/shared/types';
+
 import { AddNotificationParams, RemoveNotificationParams } from './models';
 
 const addNotification = createEvent<AddNotificationParams>();
@@ -26,8 +28,6 @@ const $notifications = createStore<Notification[]>([])
   .on(removeAllNotifications, () => []);
 
 const $notificationsIsEmpty = $notifications.map((n) => !!n.length);
-
-$notifications.watch(console.log);
 
 export const events = {
   addNotification,

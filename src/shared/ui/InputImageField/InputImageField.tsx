@@ -4,32 +4,31 @@ import { InputHTMLAttributes } from 'react';
 export type InputImageFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   imageUrl: string;
   isShowError?: boolean;
-  isValid?: boolean;
 };
 
 export const InputImageField = ({
   imageUrl,
   isShowError,
-  isValid,
+  className,
   ...props
 }: InputImageFieldProps) => {
   return (
     <label
-      htmlFor='uploadAvatar'
       className={clsx(
-        'h-28 w-28 cursor-pointer overflow-hidden rounded-full',
-        isShowError && 'outline outline-4 outline-red',
-        isValid && 'outline outline-4 outline-primary',
+        'h-28 w-28 cursor-pointer overflow-hidden rounded-full outline outline-4 outline-transparent drop-shadow focus-within:outline-emerald-500',
+        isShowError && '!outline-red-400',
+        className,
       )}
+      htmlFor='uploadAvatar'
     >
       <input
-        type='file'
-        id='uploadAvatar'
         accept='image/*'
         className='hidden'
+        id='uploadAvatar'
+        type='file'
         {...props}
       />
-      <img src={imageUrl} className='h-full w-full object-cover' />
+      <img alt='avatar' className='h-full w-full object-cover' src={imageUrl} />
     </label>
   );
 };

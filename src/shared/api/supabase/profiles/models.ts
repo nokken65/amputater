@@ -1,3 +1,7 @@
-import { User } from '@supabase/supabase-js';
+import { Profile } from '@/shared/types';
 
-export type GetProfileByIdParams = Pick<User, 'id'>;
+export type GetProfileByIdParams = Pick<Profile, 'id'>;
+export type UpdateProfileNameParams = Pick<Profile, 'id' | 'name'>;
+export type UpdateProfileAvatarParams = Pick<Profile, 'id'> & {
+  avatarFile: File;
+};

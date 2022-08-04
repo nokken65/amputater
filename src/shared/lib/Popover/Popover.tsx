@@ -50,6 +50,7 @@ const PopoverView = ({
   return (
     <>
       <div
+        className='flex'
         ref={triggerRef}
         role='button'
         tabIndex={-1}
