@@ -1,4 +1,5 @@
 import { reflect } from '@effector/reflect';
+import { memo } from 'react';
 
 import { LinkIcon } from '@/shared/icons';
 import { Stats } from '@/shared/types';
@@ -7,7 +8,7 @@ import { effects, selectors } from '../model';
 
 type StatsCountProps = Pick<Stats, 'count'>;
 
-const StatsCountView = ({ count }: StatsCountProps) => {
+const StatsCountView = memo(({ count }: StatsCountProps) => {
   return (
     <div className='flex items-center gap-4'>
       <LinkIcon className='h-7 w-7' />
@@ -17,7 +18,7 @@ const StatsCountView = ({ count }: StatsCountProps) => {
       </div>
     </div>
   );
-};
+});
 
 export const StatsCount = reflect({
   view: StatsCountView,

@@ -1,4 +1,5 @@
 import { reflect } from '@effector/reflect';
+import { memo } from 'react';
 
 import { ClickIcon } from '@/shared/icons';
 import { Stats } from '@/shared/types';
@@ -7,7 +8,7 @@ import { effects, selectors } from '../model';
 
 type StatsClicksProps = Pick<Stats, 'clicks'>;
 
-const StatsClicksView = ({ clicks }: StatsClicksProps) => {
+const StatsClicksView = memo(({ clicks }: StatsClicksProps) => {
   return (
     <div className='flex items-center gap-4'>
       <ClickIcon className='h-7 w-7' />
@@ -17,7 +18,7 @@ const StatsClicksView = ({ clicks }: StatsClicksProps) => {
       </div>
     </div>
   );
-};
+});
 
 export const StatsClicks = reflect({
   view: StatsClicksView,

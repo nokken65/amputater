@@ -5,19 +5,11 @@ import {
   AddNotificationParams,
   notificationModel,
 } from '@/entities/Notification';
-import {
-  ShortLinkCard,
-  ShortLinkLabel,
-  shortLinkModel,
-} from '@/entities/ShortLink';
+import { ShortLinkCard, shortLinkModel } from '@/entities/ShortLink';
 import { DeleteShortLinkButton } from '@/features/deleteShortLink';
 import {
-  UpdateShortLinkLabelForm,
-  updateShortLinkLabelModel,
-} from '@/features/updateShortLinkLabel';
-import {
   CopyIcon,
-  EditIcon,
+  DnDIcon,
   EmptyIcon,
   LoaderRingIcon,
   StatsIcon,
@@ -26,17 +18,13 @@ import { ShortLink } from '@/shared/types';
 import { Button } from '@/shared/ui';
 import { copyToClipBoard } from '@/shared/utils/copyToClipboard';
 
+import { ShortLinkLabelNode } from './ShortLinkLabelNode';
+
 type ShortLinksItemProps = ShortLink & {
-  isEditingLabelShortLink: string;
-  openLabelForm: (id: string) => void;
-  closeLabelForm: () => void;
   notify: (props: AddNotificationParams) => void;
 };
 
 const ShortLinksItem = ({
-  isEditingLabelShortLink,
-  openLabelForm,
-  closeLabelForm,
   notify,
   url,
   original,
@@ -49,7 +37,7 @@ const ShortLinksItem = ({
     <li>
       <ShortLinkCard
         actionsNodes={
-          <div className='flex items-center gap-2 lg:flex-col lg:items-end'>
+          <div className='flex items-center gap-2 py-2 lg:flex-col lg:items-end'>
             <Button
               className='flex items-center gap-2 text-lg font-bold'
               type='ghost'
@@ -75,19 +63,13 @@ const ShortLinksItem = ({
             <DeleteShortLinkButton id={id} />
           </div>
         }
-        fullUrl={fullUrl}
-        labelNode={
-          isEditingLabelShortLink === id ? (
-            <UpdateShortLinkLabelForm label={label} onBlur={closeLabelForm} />
-          ) : (
-            <div className='flex items-center gap-2'>
-              <ShortLinkLabel label={label} />
-              <Button type='ghost' onClick={() => openLabelForm(id)}>
-                <EditIcon className='h-5 w-5' />
-              </Button>
-            </div>
-          )
+        dndNode={
+          <div className='flex min-h-[112px] cursor-move items-center px-4'>
+            <DnDIcon className='h-fit w-4' />
+          </div>
         }
+        fullUrl={fullUrl}
+        labelNode={<ShortLinkLabelNode id={id} label={label} />}
         original={original}
         url={url}
       />
@@ -100,9 +82,6 @@ const ShortLinksItems = list({
   view: ShortLinksItem,
   getKey: ({ id }) => id,
   bind: {
-    isEditingLabelShortLink: updateShortLinkLabelModel.form.$isOpenId,
-    openLabelForm: updateShortLinkLabelModel.form.open,
-    closeLabelForm: updateShortLinkLabelModel.form.close,
     notify: notificationModel.events.addNotification,
   },
 });
