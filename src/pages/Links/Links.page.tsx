@@ -3,6 +3,7 @@ import {
   CreateShortLinkForm,
 } from '@/features/createShortLink';
 import { ShortLinksFeed } from '@/widgets/ShortLinksFeed';
+import { Stats } from '@/widgets/Stats';
 
 const Links = () => {
   return (
@@ -11,6 +12,7 @@ const Links = () => {
         <CreateShortLinkForm />
         <CopyCreatedShortLink />
       </div>
+      <Stats />
       <ul className='flex w-full flex-col gap-6'>
         <ShortLinksFeed />
       </ul>

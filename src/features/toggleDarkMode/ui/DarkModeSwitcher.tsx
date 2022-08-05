@@ -19,7 +19,7 @@ const DarkModeSwitcherView = ({
     <div className='flex w-full'>
       <Button
         className={clsx(
-          'w-1/2',
+          'w-1/2 py-3',
           isDarkMode && 'text-emerald-500 dark:text-emerald-500',
         )}
         rounded={false}

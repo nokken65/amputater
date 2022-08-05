@@ -11,8 +11,6 @@ import { Header } from '@/widgets/Header';
 import { NotificationArea } from '@/widgets/NotificationsArea/ui';
 
 const HomePage = lazy(() => import('./Home/Home.page'));
-const AboutPage = lazy(() => import('./About/About.page'));
-const ContactPage = lazy(() => import('./Contact/Contact.page'));
 const LinksPage = lazy(() => import('./Links/Links.page'));
 const ProfilePage = lazy(() => import('./Profile/Profile.page'));
 const SignInPage = lazy(() => import('./SignIn/SignIn.page'));
@@ -44,8 +42,6 @@ const PublicRoutes = () => {
   return (
     <>
       <Route route={routes.homeRoute} view={HomePage} />
-      <Route route={routes.aboutRoute} view={AboutPage} />
-      <Route route={routes.contactRoute} view={ContactPage} />
       <Route route={routes.signInRoute} view={SignInPage} />
       <Route route={routes.signUpRoute} view={SignUpPage} />
       <Route route={routes.notFoundRoute} view={NotFoundPage} />

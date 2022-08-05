@@ -2,6 +2,10 @@ import { list, variant } from '@effector/reflect';
 import { combine } from 'effector';
 
 import {
+  AddNotificationParams,
+  notificationModel,
+} from '@/entities/Notification';
+import {
   ShortLinkCard,
   ShortLinkLabel,
   shortLinkModel,
@@ -21,10 +25,6 @@ import {
 import { ShortLink } from '@/shared/types';
 import { Button } from '@/shared/ui';
 import { copyToClipBoard } from '@/shared/utils/copyToClipboard';
-import {
-  AddNotificationParams,
-  notificationModel,
-} from '@/entities/Notification';
 
 type ShortLinksItemProps = ShortLink & {
   isEditingLabelShortLink: string;
@@ -63,7 +63,7 @@ const ShortLinksItem = ({
               onClick={() =>
                 copyToClipBoard(fullUrl, () =>
                   notify({
-                    text: `Copied: ${url}`,
+                    text: `Copied: ${fullUrl}`,
                     type: 'info',
                     duration: 8000,
                   }),
