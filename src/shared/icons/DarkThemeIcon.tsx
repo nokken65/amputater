@@ -5,8 +5,8 @@ type DarkThemeIconSvgProps = SVGAttributes<SVGElement>;
 const DarkThemeIconSvg = ({ ...props }: DarkThemeIconSvgProps) => {
   return (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 512 512'
+      xmlns='http://www.w3.org/2000/svg'
       {...props}
       fill='currentColor'
     >

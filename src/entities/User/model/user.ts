@@ -1,7 +1,6 @@
 import { User } from '@supabase/supabase-js';
-import { createEvent, createStore, sample } from 'effector';
+import { createEvent, createStore } from 'effector';
 
-import { homeRoute } from '@/shared/config/routes';
 import { supabase } from '@/shared/lib/supabase';
 
 const setUser = createEvent<User | null>();
@@ -13,8 +12,6 @@ const $user = createStore<User | null>(supabase.auth.user()).on(
 
 const $userId = $user.map((user) => user?.id ?? null);
 const $isAuthorized = $user.map((user) => !!user);
-
-$user.watch((state) => console.log('user', state));
 
 export const events = {
   setUser,

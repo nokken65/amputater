@@ -38,6 +38,8 @@ export default defineConfig({
             'effector-react',
             '@effector/reflect',
             'effector-react-form',
+            'effector-storage',
+            'patronum',
           ],
           'popper-vendor': ['react-popper', '@popperjs/core'],
           'router-vendor': ['atomic-router', 'atomic-router-react', 'history'],

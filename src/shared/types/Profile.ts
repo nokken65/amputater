@@ -1,7 +1,5 @@
-import { ID } from './common';
-
 export type Profile = {
-  id: ID;
+  id: string;
   name: string;
   updatedAt: string;
   avatarUrl: string;

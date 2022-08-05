@@ -1,13 +1,13 @@
 import { reflect } from '@effector/reflect';
 
+import {
+  AddNotificationParams,
+  notificationModel,
+} from '@/entities/Notification';
 import { CopyShortLink } from '@/entities/ShortLink';
 import { ShortLink } from '@/shared/types';
 
 import { selectors } from '../model';
-import {
-  notificationModel,
-  AddNotificationParams,
-} from '@/entities/Notification';
 
 type CopyCreatedShortLinkProps = {
   link: ShortLink | null;

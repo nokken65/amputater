@@ -1,4 +1,5 @@
 import './index.scss';
+import '@/entities/ShortLink';
 
 import { reflect } from '@effector/reflect';
 import { ReactNode } from 'react';
@@ -6,9 +7,8 @@ import { ReactNode } from 'react';
 import { userModel } from '@/entities/User';
 import { Routing } from '@/pages';
 import { router } from '@/shared/lib/atomic-router';
-import { withProviders } from './providers';
 
-import '@/entities/ShortLink';
+import { withProviders } from './providers';
 
 const PureAppView = () => {
   return <Routing />;

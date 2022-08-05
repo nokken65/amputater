@@ -40,8 +40,6 @@ sample({
   target: $profile,
 });
 
-$profile.watch((state) => console.log('profile', state));
-
 export const effects = {
   getProfileByIdFx,
 };
